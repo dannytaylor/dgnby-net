@@ -1,0 +1,3 @@
+[submodule "www/simple-peer"]
+	path = www/simple-peer
+	url = https://github.com/feross/simple-peer
