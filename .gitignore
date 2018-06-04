@@ -1,5 +1,9 @@
-tic80_net
+v2/tic80
 
-www/simplepeer\.min\.js
+v2/\.local/
 
-game/\.local/
+v1/tic80
+
+v1/\.local/
+
+v1/www/simple-peer
