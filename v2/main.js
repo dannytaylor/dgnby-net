@@ -18,6 +18,7 @@ const roomCodeOptions = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var code;
 var p1send;
 var p2send;
+var rate = 16.7;
 
 // hide host buttons til cart ready
 var check_cart;
@@ -49,10 +50,10 @@ function byte2bits(val){
 // from https://github.com/rynobax/jump-game/
 function generateRoomCode() {
   let code = '';
-  for(let i=0; i<4; i++){
+  for(let i=0; i<3; i++){
     const ndx = Math.floor(Math.random() * roomCodeOptions.length);
     code += roomCodeOptions[ndx];
-    tic80_gpio[12+i]=roomCodeOptions[ndx].charCodeAt();
+    tic80_gpio[13+i]=roomCodeOptions[ndx].charCodeAt();
   }
   return code;
 }
@@ -74,7 +75,7 @@ function checkCart() {
 			if (tic80_gpio[15]>0){
 				clientID=2;
 				lcode = ''
-				for (i=12;i<16;i++){
+				for (i=13;i<16;i++){
 					lcode += String.fromCharCode(tic80_gpio[i]);
 				}
 				console.log('joined code: ', lcode);
@@ -181,7 +182,7 @@ peer2.on('data', function (data) {
 peer1.on('connect', function () {
 	console.log('CONNECTED AS ',state);
 	setTimeout(function(){ 
-		p1send = setInterval(send_data, 33); 
+		p1send = setInterval(send_data, rate); 
 	}, 500);
 	database.ref('hosts/'+ lcode).remove();
 });
@@ -189,7 +190,7 @@ peer1.on('connect', function () {
 peer2.on('connect', function () {
   console.log('CONNECTED AS ',state);
   setTimeout(function(){ 
-  	p2send = setInterval(send_data, 33); 
+  	p2send = setInterval(send_data, rate); 
   }, 500);
 });
 

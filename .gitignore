@@ -7,3 +7,5 @@ v1/tic80
 v1/\.local/
 
 v1/www/simple-peer
+
+\.vscode/
