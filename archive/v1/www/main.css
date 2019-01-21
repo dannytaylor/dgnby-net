@@ -1,0 +1,88 @@
+
+@font-face {
+  font-family: 'ticfont';
+  src: url('tic-80.woff') format('woff');
+}
+
+body {
+
+    font-family: 'ticfont';
+	text-transform: uppercase;	
+	font-size: 0.9rem;
+	background-color: #0d080d;
+	color: #4180a0;
+	padding: 20px;
+	transition: font-size 0.2s ease;
+	padding: 30px;
+	text-align: center;
+}
+
+#incoming {
+	width: 64px;
+}
+
+#hostbox{
+	visibility: hidden;
+    padding-bottom: : 60px;
+    animation-fill-mode: forwards;
+}
+#loading{
+	visibility: visible;
+	padding: 20px;
+    animation-fill-mode: forwards;
+}
+.spacer{
+	padding: 20px;
+}
+
+.btn {
+		/* float: right; */
+     	font-family: 'ticfont';
+		text-transform: uppercase;	
+		color: #4180a0;
+		border: none;
+		outline: none;
+		background-color: transparent;
+		border-radius: 2px;
+		padding: 10px 20px;
+		transition: opacity 0.2s ease, background-color 0.2s ease-in-out;
+}
+
+.btn:hover,
+.btn:focus {
+		color: #fff9e4;
+}
+
+.btn:active {
+		color: #bebbb2;
+}
+
+@media (min-width:600px) {
+		body {
+				font-size: 1rem;
+		}
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+   
+    visibility: visible;
+    opacity: 1;
+  }
+}
